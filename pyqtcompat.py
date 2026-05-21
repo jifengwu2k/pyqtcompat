@@ -38,6 +38,9 @@ __all__ = [
     "QSlider",
     "QVBoxLayout",
     "QWidget",
+    "QTextEdit",
+    "QRect",
+    "QRegion",
     "Format_RGB32",
     "Format_ARGB32",
     "Format_RGB888",
@@ -48,6 +51,12 @@ __all__ = [
     "QT_SCROLLBAR_ALWAYS_OFF",
     "QT_SCROLLBAR_AS_NEEDED",
     "QSIZEPOLICY_EXPANDING",
+    "QT_FRAMELESS_WINDOW_HINT",
+    "QT_WINDOW_STAYS_ON_TOP_HINT",
+    "QT_WA_TRANSLUCENT_BACKGROUND",
+    "QT_CROSS_CURSOR",
+    "QT_LEFT_BUTTON",
+    "QT_KEY_ESCAPE",
     "SLIDER_SINGLE_STEP_ADD",
     "SLIDER_SINGLE_STEP_SUB",
     "SLIDER_PAGE_STEP_ADD",
@@ -116,6 +125,9 @@ QSizePolicy = None
 QSlider = None
 QVBoxLayout = None
 QWidget = None
+QTextEdit = None
+QRect = None
+QRegion = None
 
 QIMAGE_FORMAT_RGB32 = None
 QIMAGE_FORMAT_ARGB32 = None
@@ -132,6 +144,13 @@ QT_SCROLLBAR_ALWAYS_OFF = None
 QT_SCROLLBAR_AS_NEEDED = None
 QSIZEPOLICY_EXPANDING = None
 
+QT_FRAMELESS_WINDOW_HINT = None
+QT_WINDOW_STAYS_ON_TOP_HINT = None
+QT_WA_TRANSLUCENT_BACKGROUND = None
+QT_CROSS_CURSOR = None
+QT_LEFT_BUTTON = None
+QT_KEY_ESCAPE = None
+
 SLIDER_SINGLE_STEP_ADD = None
 SLIDER_SINGLE_STEP_SUB = None
 SLIDER_PAGE_STEP_ADD = None
@@ -142,8 +161,8 @@ if QT_BINDING == QtBindings.PyQt6:
     import PyQt6.QtCore as QtCore
     import PyQt6.QtGui as QtGui
     import PyQt6.QtWidgets as QtWidgets
-    from PyQt6.QtCore import Qt, QTimer, pyqtSignal
-    from PyQt6.QtGui import QImage, QPixmap, QColor, QPainter, QPen, QScreen
+    from PyQt6.QtCore import Qt, QRect, QTimer, pyqtSignal
+    from PyQt6.QtGui import QImage, QPixmap, QColor, QPainter, QPen, QRegion, QScreen
     from PyQt6.QtWidgets import (
         QAbstractSlider,
         QApplication,
@@ -161,6 +180,7 @@ if QT_BINDING == QtBindings.PyQt6:
         QScrollArea,
         QSizePolicy,
         QSlider,
+        QTextEdit,
         QVBoxLayout,
         QWidget,
     )
@@ -185,6 +205,13 @@ if QT_BINDING == QtBindings.PyQt6:
     QT_SCROLLBAR_AS_NEEDED = Qt.ScrollBarPolicy.ScrollBarAsNeeded
     QSIZEPOLICY_EXPANDING = QSizePolicy.Policy.Expanding
 
+    QT_FRAMELESS_WINDOW_HINT = Qt.WindowType.FramelessWindowHint
+    QT_WINDOW_STAYS_ON_TOP_HINT = Qt.WindowType.WindowStaysOnTopHint
+    QT_WA_TRANSLUCENT_BACKGROUND = Qt.WidgetAttribute.WA_TranslucentBackground
+    QT_CROSS_CURSOR = Qt.CursorShape.CrossCursor
+    QT_LEFT_BUTTON = Qt.MouseButton.LeftButton
+    QT_KEY_ESCAPE = Qt.Key.Key_Escape
+
     SLIDER_SINGLE_STEP_ADD = QAbstractSlider.SliderAction.SliderSingleStepAdd.value
     SLIDER_SINGLE_STEP_SUB = QAbstractSlider.SliderAction.SliderSingleStepSub.value
     SLIDER_PAGE_STEP_ADD = QAbstractSlider.SliderAction.SliderPageStepAdd.value
@@ -194,8 +221,8 @@ elif QT_BINDING == QtBindings.PySide6:
     import PySide6.QtCore as QtCore
     import PySide6.QtGui as QtGui
     import PySide6.QtWidgets as QtWidgets
-    from PySide6.QtCore import Qt, QTimer, Signal
-    from PySide6.QtGui import QImage, QPixmap, QColor, QPainter, QPen, QScreen
+    from PySide6.QtCore import Qt, QRect, QTimer, Signal
+    from PySide6.QtGui import QImage, QPixmap, QColor, QPainter, QPen, QRegion, QScreen
     from PySide6.QtWidgets import (
         QAbstractSlider,
         QApplication,
@@ -213,6 +240,7 @@ elif QT_BINDING == QtBindings.PySide6:
         QScrollArea,
         QSizePolicy,
         QSlider,
+        QTextEdit,
         QVBoxLayout,
         QWidget,
     )
@@ -237,6 +265,13 @@ elif QT_BINDING == QtBindings.PySide6:
     QT_SCROLLBAR_AS_NEEDED = Qt.ScrollBarPolicy.ScrollBarAsNeeded
     QSIZEPOLICY_EXPANDING = QSizePolicy.Policy.Expanding
 
+    QT_FRAMELESS_WINDOW_HINT = Qt.WindowType.FramelessWindowHint
+    QT_WINDOW_STAYS_ON_TOP_HINT = Qt.WindowType.WindowStaysOnTopHint
+    QT_WA_TRANSLUCENT_BACKGROUND = Qt.WidgetAttribute.WA_TranslucentBackground
+    QT_CROSS_CURSOR = Qt.CursorShape.CrossCursor
+    QT_LEFT_BUTTON = Qt.MouseButton.LeftButton
+    QT_KEY_ESCAPE = Qt.Key.Key_Escape
+
     SLIDER_SINGLE_STEP_ADD = QAbstractSlider.SliderAction.SliderSingleStepAdd.value
     SLIDER_SINGLE_STEP_SUB = QAbstractSlider.SliderAction.SliderSingleStepSub.value
     SLIDER_PAGE_STEP_ADD = QAbstractSlider.SliderAction.SliderPageStepAdd.value
@@ -246,8 +281,8 @@ elif QT_BINDING == QtBindings.PyQt5:
     import PyQt5.QtCore as QtCore
     import PyQt5.QtGui as QtGui
     import PyQt5.QtWidgets as QtWidgets
-    from PyQt5.QtCore import Qt, QTimer, pyqtSignal
-    from PyQt5.QtGui import QImage, QPixmap, QColor, QPainter, QPen, QScreen
+    from PyQt5.QtCore import Qt, QRect, QTimer, pyqtSignal
+    from PyQt5.QtGui import QImage, QPixmap, QColor, QPainter, QPen, QRegion, QScreen
     from PyQt5.QtWidgets import (
         QAbstractSlider,
         QApplication,
@@ -265,6 +300,7 @@ elif QT_BINDING == QtBindings.PyQt5:
         QScrollArea,
         QSizePolicy,
         QSlider,
+        QTextEdit,
         QVBoxLayout,
         QWidget,
     )
@@ -288,6 +324,13 @@ elif QT_BINDING == QtBindings.PyQt5:
     QT_SCROLLBAR_AS_NEEDED = Qt.ScrollBarAsNeeded
     QSIZEPOLICY_EXPANDING = QSizePolicy.Expanding
 
+    QT_FRAMELESS_WINDOW_HINT = Qt.FramelessWindowHint
+    QT_WINDOW_STAYS_ON_TOP_HINT = Qt.WindowStaysOnTopHint
+    QT_WA_TRANSLUCENT_BACKGROUND = Qt.WA_TranslucentBackground
+    QT_CROSS_CURSOR = Qt.CrossCursor
+    QT_LEFT_BUTTON = Qt.LeftButton
+    QT_KEY_ESCAPE = Qt.Key_Escape
+
     SLIDER_SINGLE_STEP_ADD = int(QAbstractSlider.SliderAction.SliderSingleStepAdd)
     SLIDER_SINGLE_STEP_SUB = int(QAbstractSlider.SliderAction.SliderSingleStepSub)
     SLIDER_PAGE_STEP_ADD = int(QAbstractSlider.SliderAction.SliderPageStepAdd)
@@ -297,8 +340,8 @@ elif QT_BINDING == QtBindings.PySide2:
     import PySide2.QtCore as QtCore
     import PySide2.QtGui as QtGui
     import PySide2.QtWidgets as QtWidgets
-    from PySide2.QtCore import Qt, QTimer, Signal
-    from PySide2.QtGui import QImage, QPixmap, QColor, QPainter, QPen, QScreen
+    from PySide2.QtCore import Qt, QRect, QTimer, Signal
+    from PySide2.QtGui import QImage, QPixmap, QColor, QPainter, QPen, QRegion, QScreen
     from PySide2.QtWidgets import (
         QAbstractSlider,
         QApplication,
@@ -316,6 +359,7 @@ elif QT_BINDING == QtBindings.PySide2:
         QScrollArea,
         QSizePolicy,
         QSlider,
+        QTextEdit,
         QVBoxLayout,
         QWidget,
     )
@@ -339,6 +383,13 @@ elif QT_BINDING == QtBindings.PySide2:
     QT_SCROLLBAR_AS_NEEDED = Qt.ScrollBarAsNeeded
     QSIZEPOLICY_EXPANDING = QSizePolicy.Expanding
 
+    QT_FRAMELESS_WINDOW_HINT = Qt.FramelessWindowHint
+    QT_WINDOW_STAYS_ON_TOP_HINT = Qt.WindowStaysOnTopHint
+    QT_WA_TRANSLUCENT_BACKGROUND = Qt.WA_TranslucentBackground
+    QT_CROSS_CURSOR = Qt.CrossCursor
+    QT_LEFT_BUTTON = Qt.LeftButton
+    QT_KEY_ESCAPE = Qt.Key_Escape
+
     SLIDER_SINGLE_STEP_ADD = int(QAbstractSlider.SliderAction.SliderSingleStepAdd)
     SLIDER_SINGLE_STEP_SUB = int(QAbstractSlider.SliderAction.SliderSingleStepSub)
     SLIDER_PAGE_STEP_ADD = int(QAbstractSlider.SliderAction.SliderPageStepAdd)
@@ -347,11 +398,12 @@ elif QT_BINDING == QtBindings.PySide2:
 elif QT_BINDING == QtBindings.PyQt4:
     import PyQt4.QtCore as QtCore
     import PyQt4.QtGui as QtGui
-    from PyQt4.QtCore import Qt, QTimer, pyqtSignal
+    from PyQt4.QtCore import Qt, QRect, QTimer, pyqtSignal
     from PyQt4.QtGui import (
         QAbstractSlider,
         QApplication,
         QCheckBox,
+        QColor,
         QComboBox,
         QDesktopServices,
         QDesktopWidget,
@@ -368,12 +420,13 @@ elif QT_BINDING == QtBindings.PyQt4:
         QPen,
         QPixmap,
         QPushButton,
+        QRegion,
         QScrollArea,
         QSizePolicy,
         QSlider,
+        QTextEdit,
         QVBoxLayout,
         QWidget,
-        QColor,
     )
 
     QtWidgets = QtGui
@@ -396,6 +449,13 @@ elif QT_BINDING == QtBindings.PyQt4:
     QT_SCROLLBAR_AS_NEEDED = Qt.ScrollBarAsNeeded
     QSIZEPOLICY_EXPANDING = QSizePolicy.Expanding
 
+    QT_FRAMELESS_WINDOW_HINT = Qt.FramelessWindowHint
+    QT_WINDOW_STAYS_ON_TOP_HINT = Qt.WindowStaysOnTopHint
+    QT_WA_TRANSLUCENT_BACKGROUND = Qt.WA_TranslucentBackground
+    QT_CROSS_CURSOR = Qt.CrossCursor
+    QT_LEFT_BUTTON = Qt.LeftButton
+    QT_KEY_ESCAPE = Qt.Key_Escape
+
     SLIDER_SINGLE_STEP_ADD = QAbstractSlider.SliderSingleStepAdd
     SLIDER_SINGLE_STEP_SUB = QAbstractSlider.SliderSingleStepSub
     SLIDER_PAGE_STEP_ADD = QAbstractSlider.SliderPageStepAdd
@@ -404,11 +464,12 @@ elif QT_BINDING == QtBindings.PyQt4:
 elif QT_BINDING == QtBindings.PySide:
     import PySide.QtCore as QtCore
     import PySide.QtGui as QtGui
-    from PySide.QtCore import Qt, QTimer, Signal
+    from PySide.QtCore import Qt, QRect, QTimer, Signal
     from PySide.QtGui import (
         QAbstractSlider,
         QApplication,
         QCheckBox,
+        QColor,
         QComboBox,
         QDesktopServices,
         QDesktopWidget,
@@ -425,12 +486,13 @@ elif QT_BINDING == QtBindings.PySide:
         QPen,
         QPixmap,
         QPushButton,
+        QRegion,
         QScrollArea,
         QSizePolicy,
         QSlider,
+        QTextEdit,
         QVBoxLayout,
         QWidget,
-        QColor,
     )
 
     QtWidgets = QtGui
@@ -452,6 +514,13 @@ elif QT_BINDING == QtBindings.PySide:
     QT_SCROLLBAR_ALWAYS_OFF = Qt.ScrollBarAlwaysOff
     QT_SCROLLBAR_AS_NEEDED = Qt.ScrollBarAsNeeded
     QSIZEPOLICY_EXPANDING = QSizePolicy.Expanding
+
+    QT_FRAMELESS_WINDOW_HINT = Qt.FramelessWindowHint
+    QT_WINDOW_STAYS_ON_TOP_HINT = Qt.WindowStaysOnTopHint
+    QT_WA_TRANSLUCENT_BACKGROUND = Qt.WA_TranslucentBackground
+    QT_CROSS_CURSOR = Qt.CrossCursor
+    QT_LEFT_BUTTON = Qt.LeftButton
+    QT_KEY_ESCAPE = Qt.Key_Escape
 
     SLIDER_SINGLE_STEP_ADD = int(QAbstractSlider.SliderAction.SliderSingleStepAdd)
     SLIDER_SINGLE_STEP_SUB = int(QAbstractSlider.SliderAction.SliderSingleStepSub)

@@ -1,3 +1,5 @@
+# pyqtcompat
+
 A single-module Qt binding compatibility layer for PyQt6, PySide6, PyQt5, PySide2, PyQt4, and PySide.
 
 ## Installation
@@ -33,6 +35,33 @@ label.show()
 raise SystemExit(execute(application))
 ```
 
+Cross-binding window with a frameless, translucent, stay-on-top overlay:
+
+```python
+from pyqtcompat import (
+    QApplication, QTextEdit, QRect, QRegion,
+    QT_FRAMELESS_WINDOW_HINT,
+    QT_WINDOW_STAYS_ON_TOP_HINT,
+    QT_WA_TRANSLUCENT_BACKGROUND,
+    QT_CROSS_CURSOR,
+    QT_LEFT_BUTTON,
+    QT_KEY_ESCAPE,
+    get_or_create_q_application,
+    execute,
+)
+
+application = get_or_create_q_application()
+text_edit = QTextEdit()
+text_edit.setWindowFlags(
+    QT_FRAMELESS_WINDOW_HINT | QT_WINDOW_STAYS_ON_TOP_HINT
+)
+text_edit.setAttribute(QT_WA_TRANSLUCENT_BACKGROUND)
+text_edit.setCursor(QT_CROSS_CURSOR)
+# Check button or key presses against QT_LEFT_BUTTON / QT_KEY_ESCAPE as needed
+text_edit.show()
+raise SystemExit(execute(application))
+```
+
 You can also inspect which binding was selected:
 
 ```python
@@ -56,12 +85,13 @@ Common Qt classes exported directly:
 
 - `QTimer`
 - `QImage`, `QPixmap`, `QColor`, `QPainter`, `QPen`, `QScreen`
+- `QRect`, `QRegion`
 - `QAbstractSlider`
 - `QApplication`
 - `QCheckBox`, `QComboBox`, `QDesktopServices`, `QDesktopWidget`, `QFileDialog`
 - `QFrame`, `QGroupBox`, `QHBoxLayout`, `QLabel`, `QLineEdit`
 - `QMainWindow`, `QMessageBox`, `QPushButton`, `QScrollArea`
-- `QSizePolicy`, `QSlider`, `QVBoxLayout`, `QWidget`
+- `QSizePolicy`, `QSlider`, `QTextEdit`, `QVBoxLayout`, `QWidget`
 
 Compatibility constants exported directly:
 
@@ -69,6 +99,8 @@ Compatibility constants exported directly:
 - `QT_KEEP_ASPECT_RATIO`, `QT_SMOOTH_TRANSFORMATION`, `QT_ALIGN_CENTER`, `QT_HORIZONTAL`
 - `QT_SCROLLBAR_ALWAYS_OFF`, `QT_SCROLLBAR_AS_NEEDED`
 - `QSIZEPOLICY_EXPANDING`
+- `QT_FRAMELESS_WINDOW_HINT`, `QT_WINDOW_STAYS_ON_TOP_HINT`, `QT_WA_TRANSLUCENT_BACKGROUND`
+- `QT_CROSS_CURSOR`, `QT_LEFT_BUTTON`, `QT_KEY_ESCAPE`
 - `SLIDER_SINGLE_STEP_ADD`, `SLIDER_SINGLE_STEP_SUB`, `SLIDER_PAGE_STEP_ADD`, `SLIDER_PAGE_STEP_SUB`, `SLIDER_MOVE`
 
 Helper functions exported directly:

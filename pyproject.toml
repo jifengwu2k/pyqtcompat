@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyqtcompat"
-version = "0.1.0a0"
+version = "0.1.0a1"
 description = "A single-module Qt binding compatibility layer for PyQt6, PySide6, PyQt5, PySide2, PyQt4, and PySide."
 readme = "README.md"
 requires-python = ">=2"
